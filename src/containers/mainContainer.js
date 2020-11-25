@@ -1,5 +1,4 @@
 import React,{Component}  from 'react'
-import {connect} from 'react-redux'
 import Login from '../components/authentications/Login'
 
  class  MainContainer extends Component{
@@ -11,7 +10,6 @@ import Login from '../components/authentications/Login'
         return <div>
                       <Login />
                </div>
-
     }
 
 }

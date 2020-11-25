@@ -1,7 +1,12 @@
-import {combineReducers } from 'redux'
+import { combineReducers } from 'redux'
+
 import userReducer from './userReducer'
-const rootReducer= combineReducers(
-  { userReducer}
+import myReducer from './myReducer'
+
+const rootReducer = combineReducers (
+    {   userReducer,
+        myReducer
+    }
      
 )
 

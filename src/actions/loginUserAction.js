@@ -1,8 +1,7 @@
  const loginUser =(data)=>{
-    
+
     return (dispatch)=>{
-              //dispatch(type:"LODING_USERS")
-              fetch('http://127.0.0.1:3000/login',
+              fetch('http://127.0.0.1:3000/api/v1/login',
               {
                   method:'POST',
                   headers:{
@@ -13,8 +12,14 @@
               )
               .then(response=>response.json())
               .then(data=>{
-                 
-                 dispatch({type:'LOGIN_USER',user: data.user}) 
+
+                  if(data.error){
+                   console.log('error')
+                  }else{
+                  localStorage.setItem('token',data.token)
+                 dispatch({type:"LOGIN_USER",users: data}) 
+                  }
+  
               })
               .catch((error)=>{
                   console.error('Error',error)

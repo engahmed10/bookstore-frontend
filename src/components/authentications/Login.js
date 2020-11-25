@@ -7,21 +7,21 @@ import {connect} from 'react-redux'
 class Login extends Component {
    
     state={
-       
            username: '', 
            password: '',
-
+           //loggedIn:false
    }
 
 
      handleLoginChange=(e)=>{
         this.setState({
-           [ e.target.user]:e.target.value
+            [e.target.name]:e.target.value
         })
      }
 
      handleLoginSubmit=(e)=>{
         e.preventDefault()
+        console.log(`a`,this.state)
         this.props.loginUser(this.state)
      }
 
@@ -32,12 +32,14 @@ class Login extends Component {
        <form  onSubmit={this.handleLoginSubmit} >
 
          <input type="text" 
-          name="user" 
+          name="username" 
+          value={this.state.username}
           onChange={this.handleLoginChange} 
          />
          <br/>
          <input  type="text"
-          name="user" 
+          name="password" 
+          value={this.state.password}
           onChange={this.handleLoginChange} 
         /><br/>
          <input type="submit" 
@@ -49,13 +51,8 @@ class Login extends Component {
 
 }
 
-const mapStateToProps =state=>{
-  return   { userState: state.userReducer}
-}
-
 const mapDispatchToProps=dispatch=>{
-    return {users:(userinfo)=> dispatch(loginUser(userinfo))}
+    return {loginUser:(userinfo)=> dispatch(loginUser(userinfo))}
 }
 
-
-export default connect(mapStateToProps,mapDispatchToProps)(Login)
+export default connect(null,mapDispatchToProps)(Login)

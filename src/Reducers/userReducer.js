@@ -1,13 +1,22 @@
-const userReducer =( state={ users:{} },action)=>{
+import {loginUser}  from '../actions/loginUserAction'
+
+const userReducer =( state={ users:{},loggedIn: false} ,action)=>{
+  
+  
   switch(action.type){
     case "LOGIN_USER":
+   console.log(`reducer`,action)
        return {...state,
-                 users: action.user
+                 users: { ...action.users},
+                 loggedIn:true
+
                }
     default: 
-       state 
+      return state 
 
   }
 
 
 }
+
+export default userReducer
