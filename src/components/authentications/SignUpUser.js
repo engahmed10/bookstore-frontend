@@ -1,13 +1,16 @@
 import React,{Component} from 'react'
-import loginUser from '../../actions/loginUserAction'
+import signUpUser from '../../actions/signupUserAction'
 import {connect} from 'react-redux'
 
 
 
-class Login extends Component {
+class SignUp extends Component {
    
     state={
            username: '', 
+           email:'',
+           bio:'',
+           image:'',
            password: '',
            loggedIn:false
    }
@@ -22,7 +25,7 @@ class Login extends Component {
      handleLoginSubmit=(e)=>{
         e.preventDefault()
         console.log(`a`,this.state)
-        this.props.loginUser(this.state)
+        this.props.signUpUser(this.state)
      }
 
 
@@ -34,11 +37,31 @@ class Login extends Component {
          <input type="text" 
           name="username" 
           value={this.state.username}
+          placeholder="username"
+          onChange={this.handleLoginChange} 
+         />
+         <input type="text" 
+          name="email" 
+           placeholder="email"
+          value={this.state.email}
+          onChange={this.handleLoginChange} 
+         />
+         <input type="text" 
+          name="bio" 
+           placeholder="bio"
+          value={this.state.bio}
+          onChange={this.handleLoginChange} 
+         />
+          <input type="text" 
+          name="avatar" 
+           placeholder="avatar"
+          value={this.state.avatar}
           onChange={this.handleLoginChange} 
          />
          <br/>
          <input  type="text"
           name="password" 
+           placeholder="password"
           value={this.state.password}
           onChange={this.handleLoginChange} 
         /><br/>
@@ -52,7 +75,7 @@ class Login extends Component {
 }
 
 const mapDispatchToProps=dispatch=>{
-    return {loginUser:(userinfo)=> dispatch(loginUser(userinfo))}
+    return {signUpUser:(userinfo)=> dispatch(signUpUser(userinfo))}
 }
 
-export default connect(null,mapDispatchToProps)(Login)
+export default connect(null,mapDispatchToProps)(SignUp)
