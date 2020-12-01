@@ -10,7 +10,7 @@ class SignUp extends Component {
            username: '', 
            email:'',
            bio:'',
-           image:'',
+           avatar:'',
            password: '',
            loggedIn:false
    }
@@ -32,33 +32,38 @@ class SignUp extends Component {
   render(){
      
    return <div>
-       <form  onSubmit={this.handleLoginSubmit} >
-
+ 
+       <form  id="testformid" onSubmit={this.handleLoginSubmit} >
+         <label>User Name: </label>
          <input type="text" 
           name="username" 
           value={this.state.username}
           placeholder="username"
           onChange={this.handleLoginChange} 
-         />
+         /><br/>
+         <label>Email: </label>
          <input type="text" 
           name="email" 
            placeholder="email"
           value={this.state.email}
           onChange={this.handleLoginChange} 
-         />
-         <input type="text" 
-          name="bio" 
-           placeholder="bio"
-          value={this.state.bio}
-          onChange={this.handleLoginChange} 
-         />
+         /><br/>
+          <label>Bio: </label>
+        <textarea form ="testformid"  cols="35"
+                name="bio" 
+                placeholder="bio"
+                value={this.state.bio}
+                onChange={this.handleLoginChange} 
+       >Bio: </textarea><br/>
+          <label>Avatar: </label>
           <input type="text" 
-          name="avatar" 
-           placeholder="avatar"
-          value={this.state.avatar}
-          onChange={this.handleLoginChange} 
+            name="avatar" 
+            placeholder="avatar"
+            value={this.state.avatar}
+            onChange={this.handleLoginChange} 
          />
          <br/>
+         <label>Password: </label>
          <input  type="text"
           name="password" 
            placeholder="password"
@@ -69,6 +74,8 @@ class SignUp extends Component {
          />
 
        </form>
+    
+
       </div>
   }
 

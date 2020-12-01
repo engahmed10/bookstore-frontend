@@ -3,10 +3,10 @@
     return (dispatch)=>{
               fetch('http://127.0.0.1:3000/api/v1/autologin',
               {
-                  method:'POST',
+                
                   headers:{
                       'Content-type':'application/json',
-                      'Autorization':`Bearer ${localStorge.getItem("token")}`
+                      'Autorization':`Bearer ${localStorage.getItem("token")}`
                   },
                   body: JSON.stringify(data)
                   }
@@ -30,4 +30,4 @@
 }
 
 
-export default loginUser
+export default autoLoginUser

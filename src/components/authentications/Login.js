@@ -3,7 +3,6 @@ import loginUser from '../../actions/loginUserAction'
 import {connect} from 'react-redux'
 
 
-
 class Login extends Component {
    
     state={
@@ -21,7 +20,6 @@ class Login extends Component {
 
      handleLoginSubmit=(e)=>{
         e.preventDefault()
-        console.log(`a`,this.state)
         this.props.loginUser(this.state)
      }
 
@@ -30,13 +28,15 @@ class Login extends Component {
      
    return <div>
        <form  onSubmit={this.handleLoginSubmit} >
-
+         <label>User Name: </label>
          <input type="text" 
           name="username" 
           value={this.state.username}
           onChange={this.handleLoginChange} 
          />
+
          <br/>
+         <label>Password: </label>
          <input  type="text"
           name="password" 
           value={this.state.password}
