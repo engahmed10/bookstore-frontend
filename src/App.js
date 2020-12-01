@@ -29,7 +29,6 @@ class App  extends Component{
           <NavBar /><br/><br/>
             { this.props.state.userReducer.loggedIn?
                     <>
-                   
                     <BooksContainer />
                     <Redirect from="/login" to="/Home" />
                     <Redirect from="/signup" to="/Home" />

@@ -48,9 +48,7 @@ import Flippy, { FrontSide, BackSide } from 'react-flippy';
 
               <BackBook props={book}   />
             </BackSide>
-         </Flippy>
-
-
+       </Flippy>
       )
       )
   }
@@ -58,7 +56,7 @@ import Flippy, { FrontSide, BackSide } from 'react-flippy';
    render(){
            
       return ( 
-            <div className="book-card-container">
+            <div className="">
                {this.renderBooks()}
             </div>
           )

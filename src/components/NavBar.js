@@ -2,24 +2,27 @@
 import React,{Component} from 'react'
 import { NavLink }  from 'react-router-dom'
 import { connect } from 'react-redux'
+//import "bootstrap/dist/css/bootstrap.min.css";
 
 class NavBar   extends Component {
 renderNav=()=>(
    
   this.props.loggedIn?
-        <>
-        <NavLink to="/Home"
+        <div  style={{'height':'25px','background-color':'#f7b300'
+}}>
+        <NavLink to="/Home" style={{'margin':'25px'}}
         >Home
         </NavLink>
-        <NavLink  to="/About"
+        <NavLink  to="/About" style={{'margin':'25px'}}
           >About
         </NavLink>
-        <NavLink  to="/Logout"  onClick={this.props.resetSession} 
+        <NavLink  to="/Logout" style={{'margin':'25px'}}
+         onClick={this.props.resetSession} 
         >Log Out 
         </NavLink>
-        </>
+        </div >
         :
-        <>
+        <div  style={{'background-color':'light'}}>
          <NavLink
            to="/login">
            Log In
@@ -28,7 +31,7 @@ renderNav=()=>(
            to="/signup" >
            Sign Up
           </NavLink>
-        </>
+        </div>
 )
   
 render(){
