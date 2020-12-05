@@ -23,8 +23,8 @@ import Flippy, { FrontSide, BackSide } from 'react-flippy';
       <Flippy 
            flipOnHover={false}
             flipOnClick={true} 
-           flipDirection="horizontal" // horizontal or vertical
-           ref={(r) => this.flippy = r} // to use toggle method like this.flippy.toggle()
+           flipDirection="horizontal" 
+           ref={(r) => this.flippy = r} 
 
           style={{  display: 'grid',width: '200px',float: 'left',
           border: '1px solid whitesmoke','box-shadow': '5px 5px 15px rgba(0,0,0,0.9)',

@@ -2,7 +2,6 @@ const fetchUrl='http://127.0.0.1:3000/api/v1/comments'
 
 const addComment=(data)=>{
 
-   console.log(`storge`,localStorage)
    return (dispatch) => {
     
     fetch(fetchUrl, {

@@ -1,8 +1,5 @@
  const autoLoginUser =()=>{
-console.log(`datata`)
 const token= localStorage.getItem("token")
- console.log(`storrs`,localStorage)
- console.log(`this`,token)
     return (dispatch)=>{
       
      
