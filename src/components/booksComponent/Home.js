@@ -17,7 +17,6 @@ import Flippy, { FrontSide, BackSide } from 'react-flippy';
 
 
   renderBooks=()=>{
-
      return this.props.books.books.map(book=> 
       (    
         
@@ -43,9 +42,7 @@ import Flippy, { FrontSide, BackSide } from 'react-flippy';
               style={{
               height: '300px',width: '200px'
               }}
-               
-               >
-
+            >
               <BackBook props={book}   />
             </BackSide>
        </Flippy>
@@ -74,6 +71,5 @@ import Flippy, { FrontSide, BackSide } from 'react-flippy';
         }
  }
     
-
 
  export default connect(mapStateToProps,mapDispatchToProps)(Home)

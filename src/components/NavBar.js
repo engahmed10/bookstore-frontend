@@ -1,8 +1,6 @@
-//import React, {Component}  from 'react'
 import React,{Component} from 'react'
 import { NavLink }  from 'react-router-dom'
 import { connect } from 'react-redux'
-//import "bootstrap/dist/css/bootstrap.min.css";
 
 class NavBar   extends Component {
 renderNav=()=>(

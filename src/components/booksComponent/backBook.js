@@ -1,5 +1,7 @@
+  import { Link } from 'react-router-dom' 
+
  const BackBook=({props})=>{
-     const{id,image,title,authors,price,isbn,year}=props.attributes
+     const{id,image,title,authors,price,isbn,year}=props
     return(  
             <div className="" >
               <div >

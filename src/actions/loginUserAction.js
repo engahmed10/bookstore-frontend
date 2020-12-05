@@ -5,7 +5,8 @@
               {
                   method:'POST',
                   headers:{
-                      'Content-type':'application/json'
+                      "Content-Type": "application/json",
+                     "Accept": "application/json"
                   },
                   body: JSON.stringify(data)
                   }
@@ -16,7 +17,9 @@
                   if(data.error){
                    console.log('error')
                   }else{
+
                   localStorage.setItem('token',data.token)
+
                  dispatch({type:"LOGIN_USER",users: data}) 
                   }
   

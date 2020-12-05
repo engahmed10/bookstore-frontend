@@ -16,6 +16,7 @@
                   if(data.error){
                    console.log('error')
                   }else{
+                      localStorage.setItem('token',data.token)
                    dispatch({type:"SIGN_UP_USER",users: data}) 
                   }
   

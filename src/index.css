@@ -15,3 +15,30 @@ img{
  
 }
 
+.commentForm{
+
+  padding: 5em;
+  position: relative;
+  left: 30%;
+
+
+
+}
+
+
+.commentFormInput{
+  
+  padding: 5em 5em; 
+  box-shadow: silver;
+  border: 5px solid whitesmoke;
+  box-shadow: 2px 1px 1px 3px;
+
+  
+
+}
+.commentButton{
+
+  position: fixed;
+  left: 39%;
+  bottom: 45%;
+}
