@@ -4,7 +4,7 @@ import  fetchBooks  from '../../actions/fetchBooks'
 import FrontBook from './frontBook'
 import BackBook from './backBook'
 import Flippy, { FrontSide, BackSide } from 'react-flippy';
-
+import SearchShow from '../searchShow'
  
  class  Home extends Component{
    
@@ -15,11 +15,48 @@ import Flippy, { FrontSide, BackSide } from 'react-flippy';
      this.props.fetchBooks()
   }
 
+ componentWillUnmount() {
+        this.props.resetState({type:"RESET_STATE"})
+  }
 
   renderBooks=()=>{
-     return this.props.books.books.map(book=> 
-      (    
+
+    if( this.props.booksReducer.searchbooks && this.props.booksReducer.searchbooks.length ){
+        return this.props.booksReducer.searchbooks.map(book=> 
+      ( 
+      
+          <Flippy 
+           flipOnHover={false}
+            flipOnClick={true} 
+           flipDirection="horizontal" 
+           ref={(r) => this.flippy = r} 
+
+          style={{  display: 'grid',width: '200px',float: 'left',
+          border: '1px solid whitesmoke','box-shadow': '5px 5px 15px rgba(0,0,0,0.9)',
+           border: '1px solid whitesmoke', 'text-align': 'center',height: '300px', 
+            margin: '2em', padding: '2em'}} 
+      >
+            <FrontSide
+              style={{
+              height: '300px',width: '200px'
+              }}
+            >
+                <SearchShow props={book.volumeInfo} />
+            </FrontSide>
+            <BackSide 
+              style={{
+              height: '300px',width: '200px'
+              }}
+            >
+              <BackBook props={book.volumeInfo}   />
+            </BackSide>
+       </Flippy>
+
+      ))
+    }else{
         
+       return this.props.booksReducer.books.map(book=> 
+      ( 
       <Flippy 
            flipOnHover={false}
             flipOnClick={true} 
@@ -46,8 +83,11 @@ import Flippy, { FrontSide, BackSide } from 'react-flippy';
               <BackBook props={book}   />
             </BackSide>
        </Flippy>
-      )
-      )
+      ))
+      
+    }
+     
+    
   }
 
    render(){
@@ -62,12 +102,14 @@ import Flippy, { FrontSide, BackSide } from 'react-flippy';
  }
 
  const mapStateToProps=state=>{
-    return {books: state.booksReducer}
+    return {booksReducer: state.booksReducer}
  }
 
  const mapDispatchToProps=dispatch=>{
     return {
-        fetchBooks:()=> dispatch(fetchBooks())
+        fetchBooks:()=> dispatch(fetchBooks()),
+        resetState:(type)=>dispatch(type)
+
         }
  }
     

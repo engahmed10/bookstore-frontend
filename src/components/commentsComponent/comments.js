@@ -4,6 +4,7 @@
  import {connect}  from 'react-redux'
  import addComment from '../../actions/addComment'
  import  fetchBooks  from '../../actions/fetchBooks'
+ 
 
  class Comments extends Component{
   
@@ -11,6 +12,15 @@
 
        comment:{description:"",user_id:""}
    }
+
+
+    componentDidMount(){
+       
+        this.props.fetchBooks()
+    }
+
+ 
+
 
    handleChange=(e,book_id)=>{
 
@@ -33,12 +43,16 @@
         this.props.resetAddBooks({type:"RESET_STATE"})
   }
 
+
 renderComment=()=>{
 
 
     const book_id= this.props.match.params.id
+    console.log(`loading`,this.props)
+if (this.props.books && this.props.books.length ){
+    console.log(`book_idd`,book_id)
     let commentsByBook=this.props.comments.filter(comment => comment.book_id == book_id)
-    const  books= this.props.books.books.find(book => book_id == book.id)   
+    const  books= this.props.books.find(book => book_id == book.id) 
 
     return <>                   
                 <form className="commentForm" onSubmit={(e)=>this.handleSubmit(e)} >
@@ -46,49 +60,57 @@ renderComment=()=>{
                     <input type="textarea"  name="description" onChange={(e)=>this.handleChange(e,book_id)}  className="commentFormInput"/>
                     <input type="submit"  className="commentButton" />
                 </form>
-                <>
-                    { books.comments.map(comment =>{
+                <>  
+                {  
+                     
+                     books.comments.map(comment =>{
                         return <div>{comment.description}</div>
-                    })
+                     })
                             
-                    }
+                 }
                         
-                    {commentsByBook.map(comm => {
-                        
-                        return <div>{comm.description}</div>
+                 {
+                       
+                    commentsByBook.map(comm => {      
+                     return <div>{comm.description}</div>
                             
-                    })
+                  })
 
                     }                  
                 </>   
             </>          
-     
-    }
+} }
              
     
  render(){
-
     return( 
-        <div>
-            {  this.renderComment() }
+        <div> 
+           {this.renderComment()}
         </div>          
     )
   }
+
+   
 
 }
 
 const mapStateToProps=(state)=>{
     return {
+       
          comments: state.commentsReducer.comments,
-         books: state.commentsReducer ,         
+         books: state.commentsReducer.books ,         
     }
 }
 
 
-function mapDispatchToProps(dispatch) {
-    return  { addComment: (data)=> dispatch(addComment(data)) ,
+const mapDispatchToProps=(dispatch)=> {
+    return  {
+               fetchBooks:()=> dispatch(fetchBooks()), 
+               addComment: (data)=> dispatch(addComment(data)) ,
               resetAddBooks:(type)=>dispatch(type)
             } ;
 }
+
+
 export default connect(mapStateToProps,mapDispatchToProps)(Comments)
  

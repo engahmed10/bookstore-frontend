@@ -1,7 +1,11 @@
 
-const initialState={ comments:[],books:[] }
+const initialState={ comments:[],books:[],loading: false }
 const commentsReducer=(  state=initialState,action ) =>{
+  
    switch(action.type){
+
+     case 'LOADING_BOOKS':
+        return { ...state, books:[...state.books],comments:[...state.comments]}
 
        case 'ADD_COMMENT':
               
@@ -10,12 +14,10 @@ const commentsReducer=(  state=initialState,action ) =>{
             })
            
         case 'GET_BOOKS':
-       
-         return { ...state, books: action.books} 
+           return { ...state, books: action.books,loading: true} 
 
         case  "RESET_STATE":
-
-          return initialState;
+           return initialState;
 
         default:
            return  state
@@ -23,7 +25,6 @@ const commentsReducer=(  state=initialState,action ) =>{
 
 
 }
-
 
 
 export default commentsReducer

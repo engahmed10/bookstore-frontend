@@ -24,7 +24,6 @@ class SignUp extends Component {
 
      handleLoginSubmit=(e)=>{
         e.preventDefault()
-        console.log(`a`,this.state)
         this.props.signUpUser(this.state)
      }
 

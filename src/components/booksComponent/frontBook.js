@@ -6,7 +6,7 @@
      const{id,image,title,authors,price,isbn,year}=props
 
     return(  
-            <div onClick={(e)=>console.log(`id`,e.target)}>
+            <div >
               <img class="" src={image}   alt="card"  />
               <div  >
                   <h5  >{title}</h5>
@@ -14,7 +14,7 @@
 
                   <Link style={{marginright: '12px'}}
                    key={id}
-                  to={`${id}/comments`}
+                  to={`${id}/comments`} 
                   >Comment for this book</Link>
                  
               </div>
