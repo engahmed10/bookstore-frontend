@@ -14,7 +14,6 @@ const addComment=(data)=>{
     .then((response) => response.json())
     .then((comment) => dispatch({type:'ADD_COMMENT' ,  comment: comment  } ))
     .catch((error) => console.log(error))
-    
      }
 
 }

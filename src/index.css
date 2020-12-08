@@ -4,9 +4,13 @@ body{
   margin: 0;
   padding: 0;
   background-size: cover;
+ 
 
 }
 
+header{
+  background-color:rgb(116, 91, 44)
+}
 
 img{
   width: 170px;
@@ -41,4 +45,9 @@ img{
   position: fixed;
   left: 39%;
   bottom: 45%;
+}
+
+.btn-command-del{
+  margin-left:2em;
+  color:💚 ;
 }

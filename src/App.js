@@ -21,7 +21,6 @@ class App  extends Component{
   }
 
   render(){
-    console.log(`render app`,this.props)
     return (
     
     <Router>
@@ -32,7 +31,7 @@ class App  extends Component{
                     <Route exact path="/Home" render={routeProps =>
                     <BooksContainer {...routeProps} />
                     }/>
-                    <Route exact  path="/:id/comments"  render={matchId => 
+                    <Route exact  path="/books/:id/comments"  render={matchId => 
                      <Comments {...matchId} /> 
                      }/>
                     <Redirect from="/login" to="/Home" />

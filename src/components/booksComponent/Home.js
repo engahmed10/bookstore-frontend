@@ -23,7 +23,7 @@ import SearchShow from '../searchShow'
 
     if( this.props.booksReducer.searchbooks && this.props.booksReducer.searchbooks.length ){
         return this.props.booksReducer.searchbooks.map(book=> 
-      ( 
+          ( 
       
           <Flippy 
            flipOnHover={false}
@@ -35,7 +35,7 @@ import SearchShow from '../searchShow'
           border: '1px solid whitesmoke','box-shadow': '5px 5px 15px rgba(0,0,0,0.9)',
            border: '1px solid whitesmoke', 'text-align': 'center',height: '300px', 
             margin: '2em', padding: '2em'}} 
-      >
+           >
             <FrontSide
               style={{
               height: '300px',width: '200px'
@@ -52,7 +52,7 @@ import SearchShow from '../searchShow'
             </BackSide>
        </Flippy>
 
-      ))
+        ))
     }else{
         
        return this.props.booksReducer.books.map(book=> 

@@ -8,13 +8,13 @@
     return(  
             <div >
               <img class="" src={image}   alt="card"  />
-              <div  >
-                  <h5  >{title}</h5>
-                  <p >{authors}</p>
+              <div>
+                  <h5>{title}</h5>
+                  <p>{authors}</p>
 
                   <Link style={{marginright: '12px'}}
                    key={id}
-                  to={`${id}/comments`} 
+                  to={`/books/${id}/comments`} 
                   >Comment for this book</Link>
                  
               </div>
