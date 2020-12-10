@@ -25,9 +25,9 @@ class Login extends Component {
 
 
   render(){
-     
-   return <div>
-       <form  onSubmit={this.handleLoginSubmit} >
+    
+   return <div   class='auth-container'>
+       <form  id="login-form-container" onSubmit={this.handleLoginSubmit} >
          <label>User Name: </label>
          <input type="text" 
           name="username" 
@@ -42,7 +42,7 @@ class Login extends Component {
           value={this.state.password}
           onChange={this.handleLoginChange} 
         /><br/>
-         <input type="submit" 
+         <input type="submit" class="signup-form-btn"
          />
 
        </form>
@@ -50,6 +50,8 @@ class Login extends Component {
   }
 
 }
+
+
 
 const mapDispatchToProps=dispatch=>{
     return {loginUser:(userinfo)=> dispatch(loginUser(userinfo))}

@@ -32,7 +32,7 @@ class SignUp extends Component {
      
    return <div>
  
-       <form  id="testformid" onSubmit={this.handleLoginSubmit} >
+       <form  id="signup-form-container" onSubmit={this.handleLoginSubmit} >
          <label>User Name: </label>
          <input type="text" 
           name="username" 
@@ -69,7 +69,7 @@ class SignUp extends Component {
           value={this.state.password}
           onChange={this.handleLoginChange} 
         /><br/>
-         <input type="submit" 
+         <input type="submit"  class="signup-form-btn"
          />
 
        </form>

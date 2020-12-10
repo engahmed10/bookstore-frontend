@@ -10,7 +10,7 @@ import autoLoginUser  from './actions/autoLoginUser'
 import BooksContainer  from './containers/booksContainer'
 import Comments from './components/commentsComponent/comments'
 import {connect} from 'react-redux'
-
+import About from './components/About'
 
 class App  extends Component{
 
@@ -21,6 +21,7 @@ class App  extends Component{
   }
 
   render(){
+
     return (
     
     <Router>
@@ -32,8 +33,10 @@ class App  extends Component{
                     <BooksContainer {...routeProps} />
                     }/>
                     <Route exact  path="/books/:id/comments"  render={matchId => 
-                     <Comments {...matchId} /> 
+                     <Comments {...matchId} userinfo={this.props.state.userReducer.users} /> 
                      }/>
+
+                     <Route exact path="/About" render={route => <About />} />
                     <Redirect from="/login" to="/Home" />
                     <Redirect from="/signup" to="/Home" />
                     </>

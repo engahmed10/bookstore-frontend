@@ -24,7 +24,7 @@ class  Search extends Component{
 
   render(){
     return( 
-      <form  onSubmit={ e => this.handleSubmit(e)} >
+      <form  class="search-form" onSubmit={ e => this.handleSubmit(e)} >
         <input  type="text"  name="query" onChange={(e)=>this.handleChange(e)}/>
         <input  type="submit" />
       </form >

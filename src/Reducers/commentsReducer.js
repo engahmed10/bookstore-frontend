@@ -1,4 +1,4 @@
-const initialState={ comments:[],books:[],loading: false }
+const initialState={ comments:[],books:[],users:[],loading: false }
 const commentsReducer=(  state=initialState,action ) =>{
   
    switch(action.type){
@@ -20,6 +20,11 @@ const commentsReducer=(  state=initialState,action ) =>{
          case 'UPDATE_COMMENT':
              const comments = state.comments.filter(comment =>  comment.id !== action.comment.id)
              return {...state,comments: comments.concat(action.comment)}
+
+        case 'GET_USERS':
+          console.log(`GET_USERS`,action.users)
+
+                 return { ...state, users: action.users }
 
          default:
            return  state

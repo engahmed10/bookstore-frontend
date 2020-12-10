@@ -3,31 +3,31 @@ import { NavLink }  from 'react-router-dom'
 import { connect } from 'react-redux'
 
 class NavBar   extends Component {
+  
 renderNav=()=>(
    
   this.props.loggedIn?
-        <div  style={{'height':'25px','background-color':'#f7b300'
-}}>
-        <NavLink to="/Home" style={{'margin':'25px'}}
-        >Home
+        <div className="navbar-container" style={{'height':'25px'}} >
+        <NavLink className="navbar-navlink" to="/Home" style={{'margin':'25px'}}
+        >HOME
         </NavLink>
-        <NavLink  to="/About" style={{'margin':'25px'}}
-          >About
+        <NavLink className="navbar-navlink"  to="/About" style={{'margin':'25px'}}
+          >ABOUT
         </NavLink>
-        <NavLink  to="/Logout" style={{'margin':'25px'}}
+        <NavLink className="navbar-navlink"   to="/Logout" style={{'margin':'25px'}}
          onClick={this.props.resetSession} 
-        >Log Out 
+        >LOG OUT
         </NavLink>
         </div >
         :
-        <div  style={{'background-color':'light'}}>
-         <NavLink
+        <div className="navbar-container" style={{'background-color':'light'}}>
+         <NavLink className="navbar-navlink"   
            to="/login">
-           Log In
+           LOG IN
           </NavLink>
-           <NavLink
+           <NavLink className="navbar-navlink" 
            to="/signup" >
-           Sign Up
+           SIGN UP
           </NavLink>
         </div>
 )

@@ -14,13 +14,16 @@
               .then(response=>response.json())
               .then(data=>{
 
+
                   if(data.error){
                    console.log('error')
                   }else{
 
                   localStorage.setItem('token',data.token)
 
-                 dispatch({type:"LOGIN_USER",users: data}) 
+                  console.log(`datatoken`,data.token)
+
+                  dispatch({type:"LOGIN_USER",users: data.user}) 
                   }
   
               })

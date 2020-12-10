@@ -6,6 +6,7 @@ const booksReducer=(state=initialState,action)=>{
      case 'LOADING_BOOKS':
         return { ...state, books:[...state.books]}
       case 'GET_BOOKS':
+      
          return { ...state, books: action.books} 
 
       case  'SEARCH_BOOK':

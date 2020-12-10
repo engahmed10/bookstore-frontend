@@ -4,12 +4,12 @@ body{
   margin: 0;
   padding: 0;
   background-size: cover;
- 
+  overflow-x: hidden;
 
 }
 
 header{
-  background-color:rgb(116, 91, 44)
+  background-color:rgb(133, 45, 34)
 }
 
 img{
@@ -24,9 +24,6 @@ img{
   padding: 5em;
   position: relative;
   left: 30%;
-
-
-
 }
 
 
@@ -36,8 +33,6 @@ img{
   box-shadow: silver;
   border: 5px solid whitesmoke;
   box-shadow: 2px 1px 1px 3px;
-
-  
 
 }
 .commentButton{
@@ -50,4 +45,109 @@ img{
 .btn-command-del{
   margin-left:2em;
   color:💚 ;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+}
+
+.header{
+
+  float:right;
+  position: relative;;
+  top:-2.5em;
+  font-family: 'Nerko One';
+  font-size: 4.5em;
+  margin-right: 7em;
+  height: 0;
+}
+
+.search-form{
+
+  position: relative;
+  bottom: 4em;
+  left: 70%;
+  padding-bottom: 2em;
+  overflow: hidden;
+  padding: 3em;
+  height: 5px;
+}
+
+.navbar-container{
+    overflow: hidden;
+    background-color: rgba(235, 226, 226, 0.952);  
+    width:100% ;
+    padding:1em;
+    display: block;
+    position: relative;
+    bottom:6em;
+    margin-bottom:-10em;
+   
+}
+.navbar-navlink{
+  text-decoration: none;
+  color:rgb(27, 24, 24);
+  font-size: large;
+  padding-right: 3em;
+}
+
+.navbar-container .navbar-navlink:hover 
+{
+
+background-color:rgb(133, 45, 34);
+
+}
+.signup-form-btn{
+
+ 
+  background-color:rgb(245, 240, 234);
+}
+
+
+.auth-container{
+
+  background-color:rgb(209, 206, 0);
+}
+
+#signup-form-container{
+
+  display: block;
+  position: absolute;
+  left: 40%;
+  background-color: rgba(235, 226, 226, 0.952);
+  height:30%;
+  box-sizing: 40%;
+  bottom: 10%;
+}
+
+#login-form-container{
+
+  display: block;
+  position: absolute;
+  left: 40%;
+  background-color: rgba(235, 226, 226, 0.952);
+  height:70px;
+  box-sizing: 30%;
+  bottom:20%;
+}
+#signup-form-container input{
+ height:30px;
+}
+.commentButton{
+ 
+  position: absolute;
+  left: 6em;
+  bottom: 3em;
+} 
+
+.container{
+padding-left: 3em;
+}
+
+
+.comment-container{
+   padding: 0 0 0 10em;
+   width:30%;
+
 }

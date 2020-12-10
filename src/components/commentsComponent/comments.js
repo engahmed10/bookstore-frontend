@@ -6,7 +6,8 @@
  import  fetchComments  from '../../actions/fetchComments'
  import deleteComment from '../../actions/deleteComment'
  import updateComment from '../../actions/updateComment'
- 
+ import fetchUsers  from   '../../actions/fetchUsers'
+
  class Comments extends Component{
   
    state={
@@ -17,7 +18,10 @@
 
 
     componentDidMount(){
-        this.props.fetchComments()
+
+         this.props.fetchUsers()
+         this.props.fetchComments()
+       
     }
 
 
@@ -27,7 +31,6 @@
            { 
              comment:{[e.target.name] : e.target.value ,
              book_id: book_id},
-  
            }
        )
    }
@@ -63,6 +66,7 @@ handleEdith=(id)=>{
   handleUpdate=(e)=>{
 
      e.preventDefault();
+    
    
     const data={
         comment:{
@@ -70,34 +74,45 @@ handleEdith=(id)=>{
         id:this.state.updateId}
      }
 
-     console.log(`data`,data)
      this.props.updateComment(data)
+
+         this.setState({
+          
+           edithform:false
+
+     })
      
   }
 
 
 
 renderComment=(book_id)=>{
-    
- if (this.props.comments && this.props.comments.length ){
-
+ console.log(`pro`,this.props.userinfo.id)
+  if (this.props.comments && this.props.comments.length ){
     
     let commentsByBook=this.props.comments.filter(comment => comment.book_id == book_id)
     return <>                   
               
-        <>  
-
-                
-            {
-            commentsByBook.map(comment => {      
-                return <div>
-                        <>  {comment.description}</>
-                        <> <button  className="btn-command-del" onClick={(e)=>this.handleDelete(comment.id,comment)} > delete</button> </>
-                        <> <button  className="btn-command-update" onClick={(e)=>this.handleEdith(comment.id)} > Update</button> </>             
-                        </div>                           
+        <>    
+        {
+            commentsByBook.map(comment => {    
+           let  user = this.props.users.find(user=> user.id == comment.user_id)
+            return <div className="comment-container" >
+           
+                       <> <img src='/images.png' 
+                         alt="Avatar" class="avatar" /> </>   {user.attributes.username}<br/>
+                        <> {comment.description}
+                        { user.id == this.props.userinfo.id ?
+                        <>
+                           <button  className="btn-command-del" onClick={(e)=>this.handleDelete(comment.id,comment)} > delete</button>
+                          <button  className="btn-command-update" onClick={(e)=>this.handleEdith(comment.id)} > Update</button> 
+                         </>:''
+                         }
+                        </>             
+                    </div>                           
             })
 
-            }                  
+        }                  
         </>   
     </>          
  } }
@@ -134,7 +149,8 @@ renderComment=(book_id)=>{
 
 const mapStateToProps=(state)=>{
     return {
-         comments: state.commentsReducer.comments
+         comments: state.commentsReducer.comments,
+         users:state.commentsReducer.users
     }
 }
 
@@ -145,7 +161,8 @@ const mapDispatchToProps=(dispatch)=> {
                updateComment:(data)=>dispatch(updateComment(data)),
                addComment: (data)=> dispatch(addComment(data)) ,
                deleteComment: ({id,comment})=> dispatch(deleteComment({id,comment})),
-               resetAddBooks:(type)=>dispatch(type)
+               resetAddBooks:(type)=>dispatch(type),
+               fetchUsers:()=> dispatch(fetchUsers())
             } ;
 }
 

@@ -20,7 +20,6 @@ import SearchShow from '../searchShow'
   }
 
   renderBooks=()=>{
-
     if( this.props.booksReducer.searchbooks && this.props.booksReducer.searchbooks.length ){
         return this.props.booksReducer.searchbooks.map(book=> 
           ( 
@@ -32,7 +31,7 @@ import SearchShow from '../searchShow'
            ref={(r) => this.flippy = r} 
 
           style={{  display: 'grid',width: '200px',float: 'left',
-          border: '1px solid whitesmoke','box-shadow': '5px 5px 15px rgba(0,0,0,0.9)',
+          border: '1px solid whitesmoke','box-shadow': '5px 5px 15px',
            border: '1px solid whitesmoke', 'text-align': 'center',height: '300px', 
             margin: '2em', padding: '2em'}} 
            >
@@ -93,7 +92,7 @@ import SearchShow from '../searchShow'
    render(){
            
       return ( 
-            <div className="">
+            <div className="container">
                {this.renderBooks()}
             </div>
           )
