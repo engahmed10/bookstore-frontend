@@ -66,8 +66,6 @@ handleEdith=(id)=>{
   handleUpdate=(e)=>{
 
      e.preventDefault();
-    
-   
     const data={
         comment:{
         description: this.state.comment.description,
@@ -87,7 +85,7 @@ handleEdith=(id)=>{
 
 
 renderComment=(book_id)=>{
- console.log(`pro`,this.props.userinfo.id)
+
   if (this.props.comments && this.props.comments.length ){
     
     let commentsByBook=this.props.comments.filter(comment => comment.book_id == book_id)
@@ -95,24 +93,27 @@ renderComment=(book_id)=>{
               
         <>    
         {
-            commentsByBook.map(comment => {    
+         commentsByBook.map(comment => {    
            let  user = this.props.users.find(user=> user.id == comment.user_id)
-            return <div className="comment-container" >
-           
-                       <> <img src='/images.png' 
-                         alt="Avatar" class="avatar" /> </>   {user.attributes.username}<br/>
-                        <> {comment.description}
-                        { user.id == this.props.userinfo.id ?
-                        <>
-                           <button  className="btn-command-del" onClick={(e)=>this.handleDelete(comment.id,comment)} > delete</button>
-                          <button  className="btn-command-update" onClick={(e)=>this.handleEdith(comment.id)} > Update</button> 
-                         </>:''
-                         }
-                        </>             
-                    </div>                           
-            })
+           return <div className="comment-container" >
+        
+                    <> <img src='/images.png' 
+                    alt="Avatar" class="avatar" />
+                    </>   
+                     {user.attributes.username}<br/>
+                    <> <span style={{"margin":"5em","border":"1px solid silver",
+                       "paddingLeft": '20px'}}>   {comment.description}  </span> 
+                    { user.id == this.props.userinfo.id ?
+                    <>
+                        <button  className="btn-command-del" onClick={(e)=>this.handleDelete(comment.id,comment)} > delete</button>
+                        <button  className="btn-command-update" onClick={(e)=>this.handleEdith(comment.id)} > Update</button> 
+                    </>:''
+                    }
+                    </>             
+                </div>                           
+          })
 
-        }                  
+          }                  
         </>   
     </>          
  } }
@@ -130,7 +131,7 @@ renderComment=(book_id)=>{
                     < button className="commentButton"  onClick={(e)=>this.handleUpdate(e)} > update comment</button>
                </form>
 
-        :
+        :      
                 <form className="commentForm" onSubmit={(e)=>this.handleSubmit(e,book_id)} >
                             <h5>Replay With Comment</h5>
                             <input type="textarea"  name="description" onChange={(e)=>this.handleChange(e,book_id)} className="commentFormInput"/>

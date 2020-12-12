@@ -28,22 +28,21 @@ class Login extends Component {
     
    return <div   class='auth-container'>
        <form  id="login-form-container" onSubmit={this.handleLoginSubmit} >
-         <label>User Name: </label>
-         <input type="text" 
-          name="username" 
-          value={this.state.username}
-          onChange={this.handleLoginChange} 
-         />
-
-         <br/>
-         <label>Password: </label>
-         <input  type="text"
-          name="password" 
-          value={this.state.password}
-          onChange={this.handleLoginChange} 
-        /><br/>
-         <input type="submit" class="signup-form-btn"
-         />
+          <label>User Name: </label>
+          <input type="text" 
+            name="username" 
+            value={this.state.username}
+            onChange={this.handleLoginChange} 
+          />
+          <br/>
+          <label>Password: </label>
+          <input  type="text"
+            name="password" 
+            value={this.state.password}
+            onChange={this.handleLoginChange} 
+          /><br/>
+          <input type="submit" class="signup-form-btn"
+          />
 
        </form>
       </div>

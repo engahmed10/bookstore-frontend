@@ -4,8 +4,8 @@ import  fetchBooks  from '../../actions/fetchBooks'
 import FrontBook from './frontBook'
 import BackBook from './backBook'
 import Flippy, { FrontSide, BackSide } from 'react-flippy';
-import SearchShow from '../searchShow'
- 
+import  SearchShow from '../searchShow'
+import SearchBack from '../searchBack'
  class  Home extends Component{
    
     
@@ -31,9 +31,9 @@ import SearchShow from '../searchShow'
            ref={(r) => this.flippy = r} 
 
           style={{  display: 'grid',width: '200px',float: 'left',
-          border: '1px solid whitesmoke','box-shadow': '5px 5px 15px',
-           border: '1px solid whitesmoke', 'text-align': 'center',height: '300px', 
-            margin: '2em', padding: '2em'}} 
+                    border: '1px solid whitesmoke','box-shadow': '5px 5px 15px',
+                    border: '1px solid whitesmoke', 'text-align': 'center',height: '300px', 
+                    margin: '2em', padding: '2em'}} 
            >
             <FrontSide
               style={{
@@ -47,7 +47,7 @@ import SearchShow from '../searchShow'
               height: '300px',width: '200px'
               }}
             >
-              <BackBook props={book.volumeInfo}   />
+            <SearchBack props={book.volumeInfo} />
             </BackSide>
        </Flippy>
 
@@ -86,7 +86,6 @@ import SearchShow from '../searchShow'
       
     }
      
-    
   }
 
    render(){

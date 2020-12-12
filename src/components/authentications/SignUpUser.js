@@ -30,7 +30,7 @@ class SignUp extends Component {
 
   render(){
      
-   return <div>
+   return <div  class='auth-container'>
  
        <form  id="signup-form-container" onSubmit={this.handleLoginSubmit} >
          <label>User Name: </label>

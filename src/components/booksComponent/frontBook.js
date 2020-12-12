@@ -9,14 +9,13 @@
             <div >
               <img class="" src={image}   alt="card"  />
               <div>
-                  <h5>{title}</h5>
-                  <p>{authors}</p>
+                  <h5 style={{ "height": "11px"}} >{title}</h5>
+                  <p style={{"font-family":"Lucida Console, Courier, monospace"}}>{authors}</p>
 
-                  <Link style={{marginright: '12px'}}
+                  <Link style={{marginright: '12px',"color":"red"}}
                    key={id}
                   to={`/books/${id}/comments`} 
-                  >Comment for this book</Link>
-                 
+                  >Reply with comment for this book</Link>
               </div>
             </div>  
           )

@@ -147,7 +147,14 @@ padding-left: 3em;
 
 
 .comment-container{
-   padding: 0 0 0 10em;
-   width:30%;
 
+   padding: 0 10em;
+   width:50%;
+   
+   
+}
+
+.about{
+  margin:10% 30%;
+  width:70%;
 }
