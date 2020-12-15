@@ -11,7 +11,8 @@ const About=()=>{
               User wil able to Sign up or  Login ,also has auto login after one time login 
               User can find any Book by typing keyword or book name in search bar
               User also can add comment to admins books in main page , update,and delete  the comment
-              User can see details of each  book including title, authors,price,isbn and face of book</p>
+              User can see details of each  book including title, authors,price,isbn and face of book ,Also after seaarch books when you 
+              click to each books you will find link in back card of book to</p>
 
             </div>
             )

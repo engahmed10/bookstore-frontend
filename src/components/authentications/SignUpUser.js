@@ -63,7 +63,7 @@ class SignUp extends Component {
          />
          <br/>
          <label>Password: </label>
-         <input  type="text"
+         <input  type="password"
           name="password" 
            placeholder="password"
           value={this.state.password}

@@ -58,7 +58,7 @@ img{
   position: relative;;
   top:-2.5em;
   font-family: 'Nerko One';
-  font-size: 4.5em;
+  font-size:calc(2px + 5vw);
   margin-right: 7em;
   height: 0;
 }

@@ -36,7 +36,7 @@ class Login extends Component {
           />
           <br/>
           <label>Password: </label>
-          <input  type="text"
+          <input  type="password"
             name="password" 
             value={this.state.password}
             onChange={this.handleLoginChange} 

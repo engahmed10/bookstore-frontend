@@ -33,10 +33,10 @@ class App  extends Component{
                     <BooksContainer {...routeProps} />
                     }/>
                     <Route exact  path="/books/:id/comments"  render={matchId => 
-                     <Comments {...matchId} userinfo={this.props.state.userReducer.users} /> 
+                    <Comments {...matchId} userinfo={this.props.state.userReducer.users} /> 
                      }/>
 
-                     <Route exact path="/About" render={route => <About />} />
+                    <Route exact path="/About" render={route => <About />} />
                     <Redirect from="/login" to="/Home" />
                     <Redirect from="/signup" to="/Home" />
                     </>
