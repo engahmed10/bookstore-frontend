@@ -19,10 +19,8 @@
                    console.log('error')
                   }else{
 
+                   console.log(`login token`,data.token)
                   localStorage.setItem('token',data.token)
-
-                  console.log(`datatoken`,data.token)
-
                   dispatch({type:"LOGIN_USER",users: data.user}) 
                   }
   

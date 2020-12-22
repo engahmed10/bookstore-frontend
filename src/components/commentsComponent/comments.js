@@ -95,8 +95,8 @@ renderComment=(book_id)=>{
         {
          commentsByBook.map(comment => {    
            let  user = this.props.users.find(user=> user.id == comment.user_id)
+           console.log(`users`,this.props.users)
            return <div className="comment-container" >
-        
                     <> <img src='/images.png' 
                     alt="Avatar" class="avatar" />
                     </>   

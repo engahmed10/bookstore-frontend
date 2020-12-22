@@ -14,10 +14,17 @@ renderNav=()=>(
         <NavLink className="navbar-navlink"  to="/About" style={{'margin':'25px'}}
           >ABOUT
         </NavLink>
+       
         <NavLink className="navbar-navlink"   to="/Logout" style={{'margin':'25px'}}
          onClick={this.props.resetSession} 
         >LOG OUT
         </NavLink>
+
+
+        <NavLink className="navbar-navlink" 
+           to="/Sort" >
+          SORT
+          </NavLink>
         </div >
         :
         <div className="navbar-container" style={{'background-color':'light'}}>
@@ -29,6 +36,8 @@ renderNav=()=>(
            to="/signup" >
            SIGN UP
           </NavLink>
+
+       
         </div>
 )
   
@@ -40,10 +49,10 @@ render(){
 }
 
 const mapStateToProps=(state)=>{
-    return {loggedIn: state.userReducer.loggedIn }
+    return {loggedIn: state.users.loggedIn }
 }
 const mapDispatchToProps=(dispatch)=>{
-    return { resetSession: ()=>dispatch({type:"LOG_OUT"}) }
+    return { resetSession: ()=>dispatch({type:"LOG_OUT"})}
 }
 
 

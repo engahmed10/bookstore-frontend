@@ -11,12 +11,13 @@ import BooksContainer  from './containers/booksContainer'
 import Comments from './components/commentsComponent/comments'
 import {connect} from 'react-redux'
 import About from './components/About'
+import Sort from './components/sort'
+
 
 class App  extends Component{
 
 
   componentDidMount(){
-
     this.props.autologin()
   }
 
@@ -27,7 +28,7 @@ class App  extends Component{
     <Router>
       <div >
           <NavBar /><br/><br/>
-            { this.props.state.userReducer.loggedIn?
+            { this.props.state.users.loggedIn?
                     <>
                     <Route exact path="/Home" render={routeProps =>
                     <BooksContainer {...routeProps} />
@@ -37,6 +38,9 @@ class App  extends Component{
                      }/>
 
                     <Route exact path="/About" render={route => <About />} />
+
+                   <Route exact path="/Sort" render={route => <Sort />} />
+
                     <Redirect from="/login" to="/Home" />
                     <Redirect from="/signup" to="/Home" />
                     </>
