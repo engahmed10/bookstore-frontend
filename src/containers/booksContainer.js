@@ -1,13 +1,9 @@
-import React,{Component}  from 'react'
 import Home from '../components/booksComponent/Home'
 import Search from '../components/search'
-import { Route } from 'react-router-dom'
- import { Switch} from "react-router-dom"
  
 
- class  BooksContainer extends Component{
+ const  BooksContainer=()=>{
 
-    render(){
         return ( 
                
             <div>
@@ -16,7 +12,6 @@ import { Route } from 'react-router-dom'
             </div>
 
         )        
-    }
 
 }
 

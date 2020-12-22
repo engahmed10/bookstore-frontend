@@ -1,5 +1,5 @@
 
-const userReducer =( state={ users:{},loggedIn: false} ,action)=>{
+const userReducer =( state={ user:{},loggedIn: false} ,action)=>{
   
   
   switch(action.type){
@@ -7,21 +7,21 @@ const userReducer =( state={ users:{},loggedIn: false} ,action)=>{
        
          
        return {...state,
-                 users: { ...action.users},
+                 user: { ...action.user},
                  loggedIn: true
                }
 
      case "SIGN_UP_USER":
 
        return {...state,
-                 users: { ...action.users},
+                 user: { ...action.user},
                  loggedIn: true
                }           
 
     case "LOG_OUT":
  
         return {
-                 users: {},
+                 user: {},
                  loggedIn: false
                  }
     default: 

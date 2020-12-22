@@ -1,5 +1,4 @@
  import { Link } from 'react-router-dom' 
- import { Route }  from 'react-router-dom'
  import Comments from "../commentsComponent/comments";
 
  const FrontBook=({props})=>{

@@ -9,16 +9,16 @@ class Login extends Component {
            username: '', 
            password: '',
            loggedIn:false
-   }
+    }
 
 
-     handleLoginChange=(e)=>{
+    handleLoginChange=(e)=>{
         this.setState({
             [e.target.name]:e.target.value
         })
      }
 
-     handleLoginSubmit=(e)=>{
+    handleLoginSubmit=(e)=>{
         e.preventDefault()
         this.props.loginUser(this.state)
      }

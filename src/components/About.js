@@ -1,7 +1,4 @@
 const About=()=>{
-
-
-
   
         return (
              <div class="about">
@@ -16,14 +13,10 @@ const About=()=>{
                 User can see details of each  book including title, authors,price,isbn and face of book ,
                 In the back side of each book card ,you have a link for free reading books ! , 
               </p>
-              <img src='' />
 
             </div>
             )
        
-    
-
-
 }
 
 export default About 

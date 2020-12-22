@@ -20,11 +20,6 @@ renderNav=()=>(
         >LOG OUT
         </NavLink>
 
-
-        <NavLink className="navbar-navlink" 
-           to="/Sort" >
-          SORT
-          </NavLink>
         </div >
         :
         <div className="navbar-container" style={{'background-color':'light'}}>
@@ -49,7 +44,7 @@ render(){
 }
 
 const mapStateToProps=(state)=>{
-    return {loggedIn: state.users.loggedIn }
+    return {loggedIn: state.user.loggedIn }
 }
 const mapDispatchToProps=(dispatch)=>{
     return { resetSession: ()=>dispatch({type:"LOG_OUT"})}

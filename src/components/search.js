@@ -13,14 +13,10 @@ class  Search extends Component{
         this.setState({  [e.target.name]: e.target.value         
      });
      }
-
-
         handleSubmit=(e)=> {
         e.preventDefault()
            this.props.SearchBooks(this.state.query)
         }
-
-
 
   render(){
     return( 

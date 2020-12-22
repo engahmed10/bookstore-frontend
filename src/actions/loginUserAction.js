@@ -21,7 +21,7 @@
 
                    console.log(`login token`,data.token)
                   localStorage.setItem('token',data.token)
-                  dispatch({type:"LOGIN_USER",users: data.user}) 
+                  dispatch({type:"LOGIN_USER",user: data.user}) 
                   }
   
               })

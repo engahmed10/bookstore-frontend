@@ -7,7 +7,7 @@ import commentsReducer from './commentsReducer'
 
 const rootReducer = combineReducers (
 
-    {   users:userReducer,
+    {   user:userReducer,
         books:booksReducer,
         comments:commentsReducer
     }

@@ -1,4 +1,4 @@
-const initialState={ comments:[],books:[],users:[],loading: false }
+const initialState={ comments:[],users:[] }
 const commentsReducer=(  state=initialState,action ) =>{
   
    switch(action.type){
@@ -8,23 +8,22 @@ const commentsReducer=(  state=initialState,action ) =>{
               comments: state.comments.concat(action.comment)
             })
          case 'GET_COMMENTS':
-           return { ...state, comments: action.comments,loading: true} 
+           return { ...state,comments:action.comments} 
 
          case 'DEL_COMMENT':
             state.comments.splice(state.comments.indexOf(action.comment),1)
-             return {...state,comments:[...state.comments] }
-
+             return {...state,comments:[...state.comments]}
+            
          case 'UPDATE_COMMENT':
              const comments = state.comments.filter(comment =>  comment.id !== action.comment.id)
              return {...state,comments: comments.concat(action.comment)}
 
         case 'GET_USERS':
-                 console.log(`GET_USERS`,action.users)
-                 return { ...state, users: action.users }
+                return { ...state, users:action.users }
+
          default:
            return  state
    }
-
 
 }
 

@@ -1,9 +1,7 @@
- import { Link } from 'react-router-dom' 
- import { Route }  from 'react-router-dom'
  import React,{Component}  from 'react'
  import {connect}  from 'react-redux'
  import addComment from '../../actions/addComment'
- import  fetchComments  from '../../actions/fetchComments'
+ import fetchComments  from '../../actions/fetchComments'
  import deleteComment from '../../actions/deleteComment'
  import updateComment from '../../actions/updateComment'
  import fetchUsers  from   '../../actions/fetchUsers'
@@ -87,15 +85,16 @@ handleEdith=(id)=>{
 renderComment=(book_id)=>{
 
   if (this.props.comments && this.props.comments.length ){
+      
     
     let commentsByBook=this.props.comments.filter(comment => comment.book_id == book_id)
-    return <>                   
-              
+  
+    return <>                                
         <>    
         {
          commentsByBook.map(comment => {    
            let  user = this.props.users.find(user=> user.id == comment.user_id)
-           console.log(`users`,this.props.users)
+          
            return <div className="comment-container" >
                     <> <img src='/images.png' 
                     alt="Avatar" class="avatar" />
@@ -131,7 +130,7 @@ renderComment=(book_id)=>{
                     < button className="commentButton"  onClick={(e)=>this.handleUpdate(e)} > update comment</button>
                </form>
 
-        :      
+        :    
                 <form className="commentForm" onSubmit={(e)=>this.handleSubmit(e,book_id)} >
                             <h5>Replay With Comment</h5>
                             <input type="textarea"  name="description" onChange={(e)=>this.handleChange(e,book_id)} className="commentFormInput"/>
@@ -143,15 +142,13 @@ renderComment=(book_id)=>{
         </div>          
     )
   }
-
-   
-
+  
 }
 
 const mapStateToProps=(state)=>{
     return {
-         comments: state.commentsReducer.comments,
-         users:state.commentsReducer.users
+         comments: state.comments.comments,
+         users: state.comments.users
     }
 }
 

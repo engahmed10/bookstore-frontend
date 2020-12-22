@@ -13,7 +13,7 @@ class SignUp extends Component {
            avatar:'',
            password: '',
            loggedIn:false
-   }
+    }
 
 
      handleLoginChange=(e)=>{
@@ -73,8 +73,7 @@ class SignUp extends Component {
          />
 
        </form>
-    
-
+  
       </div>
   }
 

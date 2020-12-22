@@ -26,8 +26,7 @@
                    console.log('error')
                   }else{
                   localStorage.setItem('token',data.token)
-                console.log(`data.token`,data.token)
-                 dispatch({type:"LOGIN_USER",users: data.user}) 
+                 dispatch({type:"LOGIN_USER",user: data.user}) 
                   }
   
               })
