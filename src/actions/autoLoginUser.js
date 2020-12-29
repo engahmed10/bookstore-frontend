@@ -1,8 +1,5 @@
  const autoLoginUser =()=>{
         const token= localStorage.getItem("token")
- 
-       console.log(`local`,localStorage)
-       console.log(`token`,token)
 
     return (dispatch)=>{
 

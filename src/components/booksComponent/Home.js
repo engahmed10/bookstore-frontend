@@ -1,6 +1,6 @@
 import React,{Component}  from 'react'
 import {connect} from 'react-redux'
-import  fetchBooks  from '../../actions/fetchBooks'
+import fetchBooks  from '../../actions/fetchBooks'
 import FrontBook from './frontBook'
 import BackBook from './backBook'
 import Flippy, { FrontSide, BackSide } from 'react-flippy';
@@ -12,7 +12,9 @@ import SearchBack from '../searchBack'
     
 
   componentDidMount(){
+    console.log('a')
      this.props.fetchBooks()
+     console.log('b')
   }
 
   componentWillUnmount() {
@@ -26,10 +28,10 @@ import SearchBack from '../searchBack'
           ( 
       
           <Flippy 
-           flipOnHover={false}
-            flipOnClick={true} 
-           flipDirection="horizontal" 
-           ref={(r) => this.flippy = r} 
+             flipOnHover={false}
+             flipOnClick={true} 
+             flipDirection="horizontal" 
+             ref={(r) => this.flippy = r} 
 
           style={{  display: 'grid',width: '200px',float: 'left',
                     border: '1px solid whitesmoke','box-shadow': '5px 5px 15px',

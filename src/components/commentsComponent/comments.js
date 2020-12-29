@@ -11,7 +11,8 @@
    state={
        comment: {description:"",booke_id:""},
        updateId:"",
-       edithform: false
+       edithform: false,
+       like:0
    }
 
 
@@ -33,6 +34,14 @@
        )
    }
 
+
+handleChangelike=()=>{
+  this.setState(function(previousState){
+    return { like: previousState.like+1}
+    
+    }
+  )
+}
    
 
    handleSubmit=(e)=>{
@@ -102,10 +111,14 @@ renderComment=(book_id)=>{
                      {user.attributes.username}<br/>
                     <> <span style={{"margin":"5em","border":"1px solid silver",
                        "paddingLeft": '20px'}}>   {comment.description}  </span> 
+                    
                     { user.id == this.props.userinfo.id ?
+                    
                     <>
-                        <button  className="btn-command-del" onClick={(e)=>this.handleDelete(comment.id,comment)} > delete</button>
-                        <button  className="btn-command-update" onClick={(e)=>this.handleEdith(comment.id)} > Update</button> 
+                         <button  className="btn-command-del" onClick={(e)=>this.handleDelete(comment.id,comment)} > delete</button>
+                         <button  className="btn-command-update" onClick={(e)=>this.handleEdith(comment.id)} > Update</button> 
+                          <button  onClick={(e)=>this.handleChangelike(e)}>like</button>
+                         {this.state.like}
                     </>:''
                     }
                     </>             
@@ -115,7 +128,8 @@ renderComment=(book_id)=>{
           }                  
         </>   
     </>          
- } }
+   }
+  }
              
     
  render(){

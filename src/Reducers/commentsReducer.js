@@ -1,14 +1,15 @@
-const initialState={ comments:[],users:[] }
-const commentsReducer=(  state=initialState,action ) =>{
+const initialState={ comments:[],users:[],loading:false }
+const commentsReducer=(  state = initialState,action ) =>{
   
    switch(action.type){
+
 
          case 'ADD_COMMENT':
          return Object.assign({}, state, {
               comments: state.comments.concat(action.comment)
             })
          case 'GET_COMMENTS':
-           return { ...state,comments:action.comments} 
+           return { ...state, comments:action.comments} 
 
          case 'DEL_COMMENT':
             state.comments.splice(state.comments.indexOf(action.comment),1)

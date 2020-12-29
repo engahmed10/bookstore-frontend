@@ -32,7 +32,6 @@ renderNav=()=>(
            SIGN UP
           </NavLink>
 
-       
         </div>
 )
   

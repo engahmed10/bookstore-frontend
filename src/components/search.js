@@ -13,10 +13,10 @@ class  Search extends Component{
         this.setState({  [e.target.name]: e.target.value         
      });
      }
-        handleSubmit=(e)=> {
+   handleSubmit=(e)=> {
         e.preventDefault()
-           this.props.SearchBooks(this.state.query)
-        }
+          this.props.SearchBooks(this.state.query)
+    }
 
   render(){
     return( 
@@ -35,5 +35,6 @@ const mapDispatchToProps=(dispatch)=>{
         
     }
 }
+
 
 export default connect(null,mapDispatchToProps)(Search) 

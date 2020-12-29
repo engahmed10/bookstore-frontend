@@ -1,19 +1,18 @@
 import './App.css';
 import { BrowserRouter as Router, Route} from "react-router-dom";
-import NavBar from './components/NavBar'
-import React,{Component}  from 'react'
-import Login from './components/authentications/Login'
-import SignUp from './components/authentications/SignUpUser'
+import NavBar from './components/NavBar';
+import React,{Component}  from 'react';
+import Login from './components/authentications/Login';
+import SignUp from './components/authentications/SignUpUser';
 import { Redirect } from 'react-router';
-import autoLoginUser  from './actions/autoLoginUser'
-import BooksContainer  from './containers/booksContainer'
-import CommentsContainer from './containers/commentsContainer'
-import {connect} from 'react-redux'
-import About from './components/About'
+import autoLoginUser  from './actions/autoLoginUser';
+import BooksContainer  from './containers/booksContainer';
+import CommentsContainer from './containers/commentsContainer';
+import {connect} from 'react-redux';
+import About from './components/About';
 
 
 class App  extends Component{
-
 
   componentDidMount(){
     this.props.autologin()
