@@ -1,20 +1,21 @@
- import React,{Component}  from 'react'
- import {connect}  from 'react-redux'
- import addComment from '../../actions/addComment'
- import fetchComments  from '../../actions/fetchComments'
- import deleteComment from '../../actions/deleteComment'
- import updateComment from '../../actions/updateComment'
- import fetchUsers  from   '../../actions/fetchUsers'
+ import React,{Component}  from 'react';
+ import {connect}  from 'react-redux';
+ import addComment from '../../actions/addComment';
+ import fetchComments  from '../../actions/fetchComments';
+ import deleteComment from '../../actions/deleteComment';
+ import updateComment from '../../actions/updateComment';
+ import fetchUsers  from   '../../actions/fetchUsers';
 
  class Comments extends Component{
   
    state={
        comment: {description:"",booke_id:""},
        updateId:"",
-       edithform: false,
-       like:0
-   }
 
+       edithform: false,
+       likedId:0,
+       like:[]
+   }
 
     componentDidMount(){
 
@@ -35,12 +36,23 @@
    }
 
 
-handleChangelike=()=>{
+handleChangelike=(e,id)=>{
+  
+ 
+
+  e.preventDefault();
+ 
   this.setState(function(previousState){
-    return { like: previousState.like+1}
-    
+     return { like: previousState.like+1,
+              likedId: id
+            }
     }
   )
+  if(this.state.likedId != id){
+   this.state.like=0; 
+  }
+
+
 }
    
 
@@ -100,7 +112,7 @@ renderComment=(book_id)=>{
   
     return <>                                
         <>    
-        {
+        { 
          commentsByBook.map(comment => {    
            let  user = this.props.users.find(user=> user.id == comment.user_id)
           
@@ -111,16 +123,27 @@ renderComment=(book_id)=>{
                      {user.attributes.username}<br/>
                     <> <span style={{"margin":"5em","border":"1px solid silver",
                        "paddingLeft": '20px'}}>   {comment.description}  </span> 
-                    
+                  
+                     <button class ="btn" onClick={(e)=>{this.handleChangelike(e,comment.id)
+                     }}>
+                     like  </button>
+                     { this.state.likedId == comment.id ?
+                         <>{ this.state.like
+                         }</>
+                      :""
+                     }
+                     
                     { user.id == this.props.userinfo.id ?
                     
                     <>
-                         <button  className="btn-command-del" onClick={(e)=>this.handleDelete(comment.id,comment)} > delete</button>
-                         <button  className="btn-command-update" onClick={(e)=>this.handleEdith(comment.id)} > Update</button> 
-                          <button  onClick={(e)=>this.handleChangelike(e)}>like</button>
-                         {this.state.like}
+                        <button  className="btn-command-del" onClick={(e)=>this.handleDelete(comment.id,comment)} >
+                        delete</button>
+                        <button  className="btn-command-update" onClick={(e)=>this.handleEdith(comment.id)} >
+                        Update</button> 
+
                     </>:''
                     }
+                                      
                     </>             
                 </div>                           
           })
