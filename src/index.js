@@ -19,7 +19,3 @@ ReactDOM.render(
 );
 
 
-// store.dispatch({action}),store will run its reducer function,
-//the only way to update state is to call store.dispatch function and 
-// pass in action object ,the store will run its reducer function and savae the new 
-// state value inside

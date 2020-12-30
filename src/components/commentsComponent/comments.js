@@ -5,16 +5,14 @@
  import deleteComment from '../../actions/deleteComment';
  import updateComment from '../../actions/updateComment';
  import fetchUsers  from   '../../actions/fetchUsers';
-
+  import Comment from './comment'
  class Comments extends Component{
   
-   state={
+   state={ 
        comment: {description:"",booke_id:""},
        updateId:"",
-
        edithform: false,
-       likedId:0,
-       like:[]
+    
    }
 
     componentDidMount(){
@@ -36,24 +34,7 @@
    }
 
 
-handleChangelike=(e,id)=>{
-  
- 
 
-  e.preventDefault();
- 
-  this.setState(function(previousState){
-     return { like: previousState.like+1,
-              likedId: id
-            }
-    }
-  )
-  if(this.state.likedId != id){
-   this.state.like=0; 
-  }
-
-
-}
    
 
    handleSubmit=(e)=>{
@@ -109,43 +90,30 @@ renderComment=(book_id)=>{
       
     
     let commentsByBook=this.props.comments.filter(comment => comment.book_id == book_id)
-  
     return <>                                
         <>    
         { 
+       
+              
          commentsByBook.map(comment => {    
-           let  user = this.props.users.find(user=> user.id == comment.user_id)
           
-           return <div className="comment-container" >
-                    <> <img src='/images.png' 
-                    alt="Avatar" class="avatar" />
-                    </>   
-                     {user.attributes.username}<br/>
-                    <> <span style={{"margin":"5em","border":"1px solid silver",
-                       "paddingLeft": '20px'}}>   {comment.description}  </span> 
-                  
-                     <button class ="btn" onClick={(e)=>{this.handleChangelike(e,comment.id)
-                     }}>
-                     like  </button>
-                     { this.state.likedId == comment.id ?
-                         <>{ this.state.like
-                         }</>
-                      :""
-                     }
-                     
-                    { user.id == this.props.userinfo.id ?
-                    
-                    <>
+               let  user = this.props.users.find(user=> user.id == comment.user_id)
+          return  <div> 
+                <Comment  comment={comment} user={user}  />  
+              {          
+                    user.id == this.props.userinfo.id ?                 
+                     <>
                         <button  className="btn-command-del" onClick={(e)=>this.handleDelete(comment.id,comment)} >
                         delete</button>
                         <button  className="btn-command-update" onClick={(e)=>this.handleEdith(comment.id)} >
                         Update</button> 
 
-                    </>:''
-                    }
-                                      
-                    </>             
-                </div>                           
+               </>:''
+               }
+              
+             </div>
+                     
+                             
           })
 
           }                  

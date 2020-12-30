@@ -43,8 +43,11 @@ img{
 }
 
 .btn-command-del{
-  margin-left:2em;
-  color:💚 ;
+  margin-left:25em;
+  margin-top: 2em;
+  margin-bottom: 2em;
+
+  color:green;
 }
 
 .avatar {

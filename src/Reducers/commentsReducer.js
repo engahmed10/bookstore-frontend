@@ -1,10 +1,11 @@
-const initialState={ comments:[],users:[],loading:false }
+const initialState={ comments:{comment:[],scoreId:0},users:[],loading:false, }
 const commentsReducer=(  state = initialState,action ) =>{
   
    switch(action.type){
 
 
          case 'ADD_COMMENT':
+    
          return Object.assign({}, state, {
               comments: state.comments.concat(action.comment)
             })
@@ -21,6 +22,7 @@ const commentsReducer=(  state = initialState,action ) =>{
 
         case 'GET_USERS':
                 return { ...state, users:action.users }
+
 
          default:
            return  state

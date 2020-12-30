@@ -15,6 +15,7 @@ Getting Started
 Make sure you have the following tools installed on your system:
 
 Github
+
 Ruby 2.6.1
 Rails 6.0.3
 React 17.0.1
