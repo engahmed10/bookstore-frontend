@@ -1,6 +1,3 @@
-README
-Nature Watch
-Overview
 About The Project
 Getting Started
 Prerequisites
@@ -30,37 +27,37 @@ rails db:migrate
 
 Installation
 1. Make one folder and inside that folder clone both repos:
-    git clone git@github.com:engahmed10/bookstore-frontend.git
-    git clone git@github.com:engahmed10/bookstore-backend.git
+git clone git@github.com:engahmed10/bookstore-frontend.git
+git clone git@github.com:engahmed10/bookstore-backend.git
 2. cd bookstore-backend
 3. Install the gemfile packages
-    bundle install
+bundle install
 4. Set up the Database
-   rails db:create
-   rails db:migrate
-   optionally seed the database: rails db:seed
+rails db:create
+rails db:migrate
+optionally seed the database: rails db:seed
 5. Starting the Server (keep open while running the program)
-   rails s
+rails s
 6. cd into nature-watch-client
-   yarn install
-   yarn start
-   This will open in your browser.
+yarn install
+yarn start
+This will open in your browser.
 
 Contributing
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are greatly appreciated.
 
- 1. Fork the Project
- 2. Create your Feature Branch (git checkout -b feature/AmazingFeature)
- 3. Commit your Changes (git commit -m 'Add some AmazingFeature')
- 4. Push to the Branch (git push origin feature/AmazingFeature)
- 5. Open a Pull Request
+1. Fork the Project
+2. Create your Feature Branch (git checkout -b feature/AmazingFeature)
+3. Commit your Changes (git commit -m 'Add some AmazingFeature')
+4. Push to the Branch (git push origin feature/AmazingFeature)
+5. Open a Pull Request
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/engahmed10/bookstore-backend.git and https://github.com/engahmed10/bookstore-frontend.git.
 
 
 Acknowledgements
- . Flatiron School
- . @engahmed10
+. Flatiron School
+. @engahmed10
 
 Getting Started with Create React App
 
