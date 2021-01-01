@@ -15,7 +15,8 @@ handleChangelike=(e,id)=>{
   e.preventDefault();
  
   this.setState(function(previousState){
-     return { like: previousState.like+1,
+     return { 
+              like: previousState.like+1,
               likedId: id
             }
     }
@@ -32,7 +33,6 @@ handleChangelike=(e,id)=>{
    render(){
             const{comment,user}=this.props
 
-            console.log(`my props`,this.props)
       return (
           
             <div className="comment-container" >
@@ -46,20 +46,16 @@ handleChangelike=(e,id)=>{
                      }}>
                      like  </button>
                      { this.state.likedId == comment.id ?
-                         <div > {this.state.like }
+                         <div style={{'margin-left':'14em'}} > {this.state.like }
                          </div>
                       :""
                      }
                                         
                     </>             
                 </div>  
-
       )
 
    }
-
-
-
 
  }
 
