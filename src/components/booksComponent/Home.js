@@ -12,7 +12,7 @@ import SearchBack from '../searchBack'
     
 
   componentDidMount(){
-    console.log('a')
+     console.log('a')
      this.props.fetchBooks()
      console.log('b')
   }

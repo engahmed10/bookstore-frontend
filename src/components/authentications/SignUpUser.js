@@ -7,12 +7,12 @@ import {connect} from 'react-redux'
 class SignUp extends Component {
    
     state={
-           username: '', 
-           email:'',
-           bio:'',
-           avatar:'',
-           password: '',
-           loggedIn:false
+          username: '', 
+          email:'',
+          bio:'',
+          avatar:'',
+          password: '',
+          loggedIn:false
     }
 
 

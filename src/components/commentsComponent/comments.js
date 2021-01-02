@@ -1,19 +1,28 @@
- import React,{Component}  from 'react';
- import {connect}  from 'react-redux';
- import addComment from '../../actions/addComment';
- import fetchComments  from '../../actions/fetchComments';
- import deleteComment from '../../actions/deleteComment';
- import updateComment from '../../actions/updateComment';
- import fetchUsers  from   '../../actions/fetchUsers';
-  import Comment from './comment'
+import React,{Component}  from 'react';
+import {connect}  from 'react-redux';
+import addComment from '../../actions/addComment';
+import fetchComments  from '../../actions/fetchComments';
+import deleteComment from '../../actions/deleteComment';
+import updateComment from '../../actions/updateComment';
+import fetchUsers  from   '../../actions/fetchUsers';
+import Comment from './comment'
+import ReactStars from "react-rating-stars-component";
+import {useState} from 'react';
+import StarRateing  from './starrateing'
+
+
  class Comments extends Component{
-  
-   state={ 
+
+   state = {
+
        comment: {description:"",booke_id:""},
        updateId:"",
        edithform: false,
-    
+   
    }
+
+
+
 
     componentDidMount(){
 
@@ -94,24 +103,25 @@ renderComment=(book_id)=>{
         <>    
         { 
        
-              
          commentsByBook.map(comment => {    
-          
+                
                let  user = this.props.users.find(user=> user.id == comment.user_id)
           return  <div> 
                 <Comment  comment={comment} user={user}  />  
-              {          
+               {          
                     user.id == this.props.userinfo.id ?                 
                      <>
                         <button  className="btn-command-del" onClick={(e)=>this.handleDelete(comment.id,comment)} >
                         delete</button>
                         <button  className="btn-command-update" onClick={(e)=>this.handleEdith(comment.id)} >
                         Update</button> 
+                     </>
 
-               </>:''
+                    :''
                }
-              
-             </div>
+
+
+          </div>
                      
                              
           })
@@ -120,28 +130,33 @@ renderComment=(book_id)=>{
         </>   
     </>          
    }
-  }
-             
+  }     
     
+
  render(){
      const book_id= this.props.match.params.id
+
+       
     return( 
+        
+      <div> 
+      { this.state.edithform ?
+        <form className="commentForm" >
+              <h5>Update Comment</h5>
+              <input type="textarea"  name="description" onChange={(e)=>this.handleChange(e)}  className="commentFormInput"/>
+              < button className="commentButton"  onClick={(e)=>this.handleUpdate(e)} > update comment</button>
+          </form>
 
-        <div> 
-        { this.state.edithform ?
-              <form className="commentForm" >
-                    <h5>Update Comment</h5>
-                    <input type="textarea"  name="description" onChange={(e)=>this.handleChange(e)}  className="commentFormInput"/>
-                    < button className="commentButton"  onClick={(e)=>this.handleUpdate(e)} > update comment</button>
-               </form>
-
-        :    
-                <form className="commentForm" onSubmit={(e)=>this.handleSubmit(e,book_id)} >
-                            <h5>Replay With Comment</h5>
-                            <input type="textarea"  name="description" onChange={(e)=>this.handleChange(e,book_id)} className="commentFormInput"/>
-                            <input type="submit"  className="commentButton" />
-                </form>
-         
+      :       
+          <form className="commentForm" onSubmit={(e)=>this.handleSubmit(e,book_id)} >
+                <h5>Replay With Comment</h5>
+                 <StarRateing />
+                <br/>
+                <br/>
+                <input type="textarea"  name="description" onChange={(e)=>this.handleChange(e,book_id)} className="commentFormInput"/>
+                <input type="submit"  className="commentButton" />
+          </form>
+        
          }
            {this.renderComment(book_id)}
         </div>          
